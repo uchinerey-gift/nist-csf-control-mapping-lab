@@ -1,35 +1,115 @@
-# NIST CSF Control Mapping and Gap Assessment Lab
+# NIST CSF Control Mapping Lab
 
-## Objective
-This lab demonstrates how cybersecurity controls can be mapped across NIST CSF, NIST 800-53, CIS Controls, and ISO 27001 to support governance, risk management, compliance, audit readiness, and remediation planning.
+## Overview
 
-## Scenario
-A fictional organization is improving its cybersecurity program and wants to align its controls with NIST CSF. The assessment identifies control mappings, evidence requirements, gaps, and remediation actions.
+This project demonstrates a simulated cybersecurity compliance assessment aligned with:
 
-## Frameworks Used
-- NIST Cybersecurity Framework
+- NIST Cybersecurity Framework (CSF)
+- NIST RMF
 - NIST SP 800-53
-- CIS Controls
-- ISO 27001
+- DISA STIG methodologies
 
-## Skills Demonstrated
-- Control mapping
-- Gap assessment
-- Evidence identification
-- POA&M development
-- Risk-based remediation
-- Audit readiness documentation
+The lab focuses on security control validation, STIG compliance scanning, audit logging review, gap assessment activities, and POA&M remediation tracking using a Windows 11 virtual machine.
 
-## Tools Used
-- Microsoft Excel
-- GitHub
-- NIST CSF
-- NIST 800-53
-- CIS Controls
-- ISO 27001 mapping references
+---
 
-## Key Takeaway
-This lab demonstrates that cybersecurity control mapping is not just a documentation exercise. It helps organizations understand whether their security controls are implemented, evidenced, effective, and aligned with business risk.
+# Objectives
 
-## Business Value
-Control mapping helps organizations reduce duplicate compliance work, improve audit readiness, identify security gaps, prioritize remediation, and communicate cybersecurity risk to stakeholders.
+The purpose of this project was to:
+
+- Perform a STIG-based compliance assessment
+- Review Windows audit logging configurations
+- Identify security gaps and weaknesses
+- Map technical findings to NIST 800-53 controls
+- Create remediation tracking documentation
+- Demonstrate continuous monitoring processes
+
+---
+
+# Technologies and Tools Used
+
+| Tool | Purpose |
+|---|---|
+| Windows 11 Pro VM | Assessment target |
+| SCAP Compliance Checker (SCC) | Automated compliance scanning |
+| STIG Viewer 3.7 | STIG checklist analysis |
+| Windows Event Viewer | Audit log validation |
+| GitHub | Documentation repository |
+
+---
+
+# Assessment Activities
+
+## Windows System Validation
+
+- Verified hostname
+- Reviewed OS version and system specifications
+- Documented VM configuration
+
+## Audit Log Review
+
+Validated:
+- Security logs
+- Event ID 4624 successful logons
+- Audit policy configurations
+
+## SCC Compliance Scan
+
+Performed automated STIG compliance scanning against:
+- Windows 11 STIG Benchmark
+- Microsoft Defender
+- Windows Firewall
+- Windows Updates
+
+## STIG Viewer Analysis
+
+Imported SCC scan results into STIG Viewer and reviewed:
+- CAT I findings
+- CAT II findings
+- CAT III findings
+- Compliance score
+- Open vulnerabilities
+
+## Control Mapping
+
+Mapped technical findings to NIST 800-53 controls including:
+
+- AU-2
+- AU-6
+- AU-12
+- AC-2
+- IA-5
+- SC-28
+- CM-8
+
+## POA&M Tracking
+
+Documented:
+- Findings
+- Severity levels
+- Remediation recommendations
+- Milestones
+- Status tracking
+
+---
+
+# Repository Structure
+
+```text
+nist-csf-control-mapping-lab/
+│
+├── README.md
+├── control-mapping-matrix.xlsx
+├── gap-assessment-summary.md
+├── poam-tracker.xlsx
+│
+├── screenshots/
+│   ├── 07-windows-vm-info.png
+│   ├── 10-event-viewer-security-logs.png
+│   ├── 11-event-id-4624-successful-logon.png
+│   ├── 13-scc-scan-results.png
+│   ├── 14-scc-open-findings.png
+│   ├── 15-stig-viewer-results-imported.png
+│   └── 16-scc-generated-results-files.png
+│
+└── templates/
