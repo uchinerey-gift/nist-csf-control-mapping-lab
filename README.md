@@ -290,7 +290,13 @@ The mapping matrix includes:
 - implementation status
 - remediation considerations
 
-## Control Mapping Matrix
+## Control Mapping Matrix Preview
+
+The screenshot below demonstrates how technical findings were mapped to NIST SP 800-53 controls and associated evidence sources.
+
+![Control Mapping Matrix Preview](screenshots/17-control-mapping-matrix-preview.png)
+
+## Full Control Mapping Matrix
 
 [Control Mapping Matrix](control-mapping-matrix.xlsx)
 
@@ -330,7 +336,13 @@ The POA&M includes:
 - target completion dates
 - status tracking
 
-## POA&M Tracker
+## POA&M Tracker Preview
+
+The screenshot below demonstrates how identified weaknesses and remediation activities were documented and tracked throughout the assessment lifecycle.
+
+![POA&M Tracker Preview](screenshots/18-poam-tracker-preview.png)
+
+## Full POA&M Tracker
 
 [POA&M Tracker](poam-tracker.xlsx)
 
