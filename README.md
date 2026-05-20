@@ -81,7 +81,9 @@ This lab follows a simplified RMF continuous monitoring workflow:
 ```text
 Windows 11 VM Identification
 ↓
-Audit Logging Review
+Audit Policy Review
+↓
+Audit Logging Validation
 ↓
 Authentication Event Validation
 ↓
@@ -90,8 +92,6 @@ STIG Checklist Creation
 SCC Compliance Scan
 ↓
 Open Finding Review
-↓
-Detailed STIG Findings Analysis
 ↓
 STIG Viewer Import
 ↓
@@ -130,6 +130,50 @@ The following system information was documented during the assessment:
 - CM-8 — System Component Inventory
 - CA-2 — Security Assessments
 - CM-6 — Configuration Settings
+
+---
+
+# Audit Policy Review
+
+Audit policy settings were reviewed to validate whether logging categories were properly configured before assessment activities.
+
+## Audit Policy Before Configuration
+
+The screenshot below demonstrates the initial audit policy configuration where audit categories were not enabled.
+
+![Audit Policy Without Auditing](screenshots/08-audit-policy-no-auditing.png)
+
+### Related Controls
+
+- AU-2 — Event Logging
+- AU-12 — Audit Generation
+- CM-6 — Configuration Settings
+
+### So What
+
+Improper audit policy configurations reduce system visibility and may prevent organizations from detecting suspicious or unauthorized activity.
+
+---
+
+# Audit Policy Validation
+
+Audit policy settings were updated and validated to confirm security-relevant events were being logged properly.
+
+## Audit Policy Enabled
+
+The screenshot below demonstrates audit categories configured for successful event logging.
+
+![Audit Policy Enabled](screenshots/09-audit-policy-enabled.png)
+
+### Related Controls
+
+- AU-2 — Event Logging
+- AU-6 — Audit Review
+- AU-12 — Audit Generation
+
+### So What
+
+Proper audit policy configuration improves monitoring visibility and supports incident detection, investigations, and compliance validation.
 
 ---
 
@@ -232,9 +276,9 @@ The SCC scan evaluated:
 
 ## SCC Scan Results
 
-The screenshot below provides an executive overview of the SCC assessment results, including compliance scores, scan streams, and generated assessment artifacts.
+The screenshot below provides an overview of the SCC assessment streams and generated compliance outputs.
 
-![SCC Scan Results](screenshots/13-scc-scan-results.png)
+![SCC Scan Results](screenshots/13-scc-scan-results(4).png)
 
 ### Assessment Results
 
@@ -264,6 +308,26 @@ The SCC scan identified multiple configuration weaknesses that could increase th
 
 ---
 
+# SCC Assessment Summary
+
+The SCC non-compliance report summarized the overall assessment score, failed checks, and system configuration details identified during the Windows 11 STIG assessment.
+
+## SCC Assessment Summary Report
+
+![SCC Assessment Summary](screenshots/13-scc-scan-results-2-(4).png)
+
+### Related Controls
+
+- CA-2 — Security Assessments
+- CA-7 — Continuous Monitoring
+- RA-5 — Vulnerability Monitoring
+
+### So What
+
+Assessment summaries help security teams quickly identify failed controls, prioritize remediation efforts, and evaluate overall compliance posture.
+
+---
+
 # SCC Open Findings Analysis
 
 The SCC report identified several CAT I, CAT II, and CAT III findings requiring remediation review and tracking.
@@ -280,48 +344,9 @@ Examples included:
 
 ## SCC Open Findings
 
-The screenshot below demonstrates the SCC non-compliance report summary and system assessment details.
-
-![SCC Open Findings](screenshots/14-scc-open-finding.png)
-
-### Related Controls
-
-- SC-28 — Protection of Information at Rest
-- IA-5 — Authenticator Management
-- AU-2 — Event Logging
-- AC-7 — Unsuccessful Logon Attempts
-- CM-6 — Configuration Settings
-
-### So What
-
-Open STIG findings represent security gaps that increase organizational risk exposure and reduce compliance posture.
-
----
-
-# Detailed STIG Findings Review
-
-The SCC detailed findings report categorized weaknesses by severity level and identified specific failed STIG requirements.
-
-The assessment identified findings across:
-
-- CAT I
-- CAT II
-- CAT III
-
-## Detailed Findings Review
-
 The screenshot below demonstrates detailed CAT I and CAT II findings identified during the SCC assessment review.
 
-![Detailed STIG Findings](screenshots/14a-detailed-cat-findings.png)
-
-### Examples of Findings Identified
-
-- BitLocker encryption deficiencies
-- weak password complexity requirements
-- insufficient audit logging configurations
-- WinRM authentication weaknesses
-- account lockout configuration weaknesses
-- autoplay and autorun weaknesses
+![SCC Open Findings](screenshots/14-scc-open-finding(1).png)
 
 ### Related Controls
 
@@ -333,6 +358,8 @@ The screenshot below demonstrates detailed CAT I and CAT II findings identified 
 - CM-6 — Configuration Settings
 
 ### So What
+
+Open STIG findings represent security gaps that increase organizational risk exposure and reduce compliance posture.
 
 Detailed findings analysis helps organizations:
 
@@ -350,7 +377,7 @@ The SCC scan results were imported into STIG Viewer for centralized checklist an
 
 ## Imported STIG Results
 
-![STIG Viewer Results Imported](screenshots/15-stig-viewer-results-imported.png)
+![STIG Viewer Results Imported](screenshots/15-stig-viewer-results-imported(1).png)
 
 ### Findings Overview
 
