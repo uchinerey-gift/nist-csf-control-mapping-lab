@@ -23,6 +23,22 @@ The assessment was performed against a Windows 11 virtual machine using SCC and 
 
 ---
 
+# Key Findings Summary
+
+| Finding | Severity | Related Control | Evidence |
+|---|---|---|---|
+| BitLocker encryption was not enabled | CAT I | SC-28 | SCC Open Findings |
+| Weak password policy settings were identified | CAT II | IA-5 | SCC Open Findings |
+| Audit logging gaps were identified | CAT II | AU-2 / AU-12 | Event Viewer and SCC Results |
+| Account lockout settings did not meet benchmark requirements | CAT II | AC-7 | SCC Open Findings |
+| WinRM authentication weaknesses were identified | CAT I | IA-2 / AC-17 | SCC Open Findings |
+
+## So What
+
+These findings show that the Windows 11 VM had configuration weaknesses that could increase the risk of unauthorized access, weak authentication, insufficient logging, and data exposure. The findings were documented, mapped to controls, and tracked through the POA&M process.
+
+---
+
 # Assessment Objectives
 
 The purpose of this assessment was to:
@@ -45,6 +61,38 @@ The purpose of this assessment was to:
 | STIG Viewer 3.7 | STIG checklist review and analysis |
 | Windows Event Viewer | Audit log validation |
 | GitHub | Documentation and evidence repository |
+
+---
+
+# Assessment Workflow
+
+This lab follows a simplified RMF continuous monitoring workflow:
+
+```text
+Windows 11 VM Identification
+↓
+Audit Logging Review
+↓
+Authentication Event Validation
+↓
+STIG Checklist Creation
+↓
+SCC Compliance Scan
+↓
+Open Finding Review
+↓
+STIG Viewer Import
+↓
+Control Mapping
+↓
+POA&M Tracking
+↓
+Gap Assessment Summary
+```
+
+## So What
+
+This workflow demonstrates how technical evidence is collected, assessed, mapped to security controls, and converted into remediation actions.
 
 ---
 
@@ -390,6 +438,16 @@ This assessment supports several RMF lifecycle activities.
 | Assess | Perform SCC and STIG analysis |
 | Authorize | Support risk-based decisions |
 | Monitor | Track findings and remediation |
+
+---
+
+# How To Explain This Project
+
+This project demonstrates a simulated RMF continuous monitoring and control mapping workflow. I assessed a Windows 11 VM using SCC, STIG Viewer, and Event Viewer. I validated audit logs, reviewed authentication events, ran a Windows 11 STIG compliance scan, identified CAT I and CAT II findings, mapped those findings to NIST SP 800-53 controls, and documented remediation actions in a POA&M tracker.
+
+## Why This Matters
+
+The purpose of this lab was to show how technical security findings become governance artifacts. In a real organization, these findings would support audit readiness, risk management, remediation tracking, and continuous monitoring activities.
 
 ---
 
