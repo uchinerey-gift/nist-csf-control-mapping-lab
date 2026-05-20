@@ -27,15 +27,25 @@ The assessment was performed against a Windows 11 virtual machine using SCC and 
 
 | Finding | Severity | Related Control | Evidence |
 |---|---|---|---|
-| BitLocker encryption was not enabled | CAT I | SC-28 | SCC Open Findings |
+| BitLocker encryption deficiencies were identified during SCC compliance scanning | CAT I | SC-28 | SCC Open Findings |
 | Weak password policy settings were identified | CAT II | IA-5 | SCC Open Findings |
 | Audit logging gaps were identified | CAT II | AU-2 / AU-12 | Event Viewer and SCC Results |
 | Account lockout settings did not meet benchmark requirements | CAT II | AC-7 | SCC Open Findings |
 | WinRM authentication weaknesses were identified | CAT I | IA-2 / AC-17 | SCC Open Findings |
+| Configuration baseline deviations and lower-risk hardening weaknesses were identified during STIG assessment review | CAT III | CM-6 | SCC and STIG Viewer Results |
 
 ## So What
 
-These findings show that the Windows 11 VM had configuration weaknesses that could increase the risk of unauthorized access, weak authentication, insufficient logging, and data exposure. The findings were documented, mapped to controls, and tracked through the POA&M process.
+These findings demonstrate that the Windows 11 VM contained multiple security configuration weaknesses that could increase the risk of:
+
+- unauthorized access
+- weak authentication
+- insufficient logging
+- insecure remote management
+- configuration drift
+- data exposure
+
+The findings were documented, mapped to NIST SP 800-53 controls, and tracked through the POA&M process to support RMF continuous monitoring activities.
 
 ---
 
@@ -81,6 +91,8 @@ SCC Compliance Scan
 ↓
 Open Finding Review
 ↓
+Detailed STIG Findings Analysis
+↓
 STIG Viewer Import
 ↓
 Control Mapping
@@ -92,7 +104,7 @@ Gap Assessment Summary
 
 ## So What
 
-This workflow demonstrates how technical evidence is collected, assessed, mapped to security controls, and converted into remediation actions.
+This workflow demonstrates how technical evidence is collected, assessed, mapped to security controls, and converted into remediation tracking documentation.
 
 ---
 
@@ -147,6 +159,7 @@ Security logs were reviewed through Windows Event Viewer.
 ### So What
 
 Audit logging is critical for:
+
 - detecting suspicious activity
 - supporting incident response
 - validating accountability
@@ -173,6 +186,7 @@ Event ID 4624 successful logon events were validated to confirm authentication l
 ### So What
 
 Authentication logs help security teams:
+
 - identify unauthorized access
 - detect brute-force activity
 - monitor user behavior
@@ -207,13 +221,18 @@ The checklist imported the Windows 11 SCAP benchmark and categorized findings by
 SCAP Compliance Checker (SCC) was used to perform automated compliance validation against the Windows 11 STIG benchmark.
 
 The SCC scan evaluated:
+
 - audit configurations
 - password policies
 - encryption settings
 - account management controls
 - logging requirements
+- authentication settings
+- system hardening configurations
 
 ## SCC Scan Results
+
+The screenshot below provides an executive overview of the SCC assessment results, including compliance scores, scan streams, and generated assessment artifacts.
 
 ![SCC Scan Results](screenshots/13-scc-scan-results.png)
 
@@ -236,25 +255,32 @@ The SCC scan evaluated:
 ### So What
 
 The SCC scan identified multiple configuration weaknesses that could increase the likelihood of:
+
 - unauthorized access
 - weak authentication
 - insufficient logging
 - insecure configurations
+- non-compliance with hardening baselines
 
 ---
 
 # SCC Open Findings Analysis
 
-The SCC report identified several CAT I and CAT II findings requiring remediation.
+The SCC report identified several CAT I, CAT II, and CAT III findings requiring remediation review and tracking.
 
 Examples included:
-- BitLocker disabled
+
+- BitLocker encryption deficiencies
 - weak password policies
 - insufficient audit configurations
 - WinRM authentication weaknesses
 - autorun enabled
+- account lockout weaknesses
+- configuration baseline deviations
 
-## Open Findings
+## SCC Open Findings
+
+The screenshot below demonstrates the SCC non-compliance report summary and system assessment details.
 
 ![SCC Open Findings](screenshots/14-scc-open-finding.png)
 
@@ -264,10 +290,57 @@ Examples included:
 - IA-5 — Authenticator Management
 - AU-2 — Event Logging
 - AC-7 — Unsuccessful Logon Attempts
+- CM-6 — Configuration Settings
 
 ### So What
 
 Open STIG findings represent security gaps that increase organizational risk exposure and reduce compliance posture.
+
+---
+
+# Detailed STIG Findings Review
+
+The SCC detailed findings report categorized weaknesses by severity level and identified specific failed STIG requirements.
+
+The assessment identified findings across:
+
+- CAT I
+- CAT II
+- CAT III
+
+## Detailed Findings Review
+
+The screenshot below demonstrates detailed CAT I and CAT II findings identified during the SCC assessment review.
+
+![Detailed STIG Findings](screenshots/14a-detailed-cat-findings.png)
+
+### Examples of Findings Identified
+
+- BitLocker encryption deficiencies
+- weak password complexity requirements
+- insufficient audit logging configurations
+- WinRM authentication weaknesses
+- account lockout configuration weaknesses
+- autoplay and autorun weaknesses
+
+### Related Controls
+
+- SC-28 — Protection of Information at Rest
+- IA-5 — Authenticator Management
+- AU-2 — Event Logging
+- AC-7 — Unsuccessful Logon Attempts
+- AC-17 — Remote Access
+- CM-6 — Configuration Settings
+
+### So What
+
+Detailed findings analysis helps organizations:
+
+- prioritize remediation efforts
+- understand severity levels
+- identify control weaknesses
+- support POA&M tracking
+- improve compliance posture
 
 ---
 
@@ -296,10 +369,12 @@ The SCC scan results were imported into STIG Viewer for centralized checklist an
 ### So What
 
 STIG Viewer supports:
+
 - structured compliance validation
 - remediation tracking
 - assessment documentation
 - audit preparation
+- severity categorization
 
 ---
 
@@ -308,6 +383,7 @@ STIG Viewer supports:
 The SCC scan generated multiple compliance artifacts and result files.
 
 These included:
+
 - XCCDF results
 - HTML reports
 - non-compliance reports
@@ -320,6 +396,7 @@ These included:
 ### So What
 
 Assessment artifacts provide:
+
 - audit evidence
 - assessment traceability
 - compliance documentation
@@ -332,6 +409,7 @@ Assessment artifacts provide:
 Assessment findings were mapped to NIST SP 800-53 security controls.
 
 The mapping matrix includes:
+
 - control identifiers
 - assessment evidence
 - related findings
@@ -353,18 +431,21 @@ The screenshot below demonstrates how technical findings were mapped to NIST SP 
 - AU-2
 - AU-6
 - AU-12
+- CM-6
 - CM-8
 - RA-5
 - SI-2
 - SC-28
 - IA-5
 - AC-7
+- AC-17
 
 ### So What
 
 Control mapping demonstrates how technical findings align with governance and compliance requirements.
 
 This activity supports:
+
 - RMF assessments
 - audit readiness
 - compliance validation
@@ -377,6 +458,7 @@ This activity supports:
 A POA&M tracker was created to document remediation activities for identified weaknesses.
 
 The POA&M includes:
+
 - finding descriptions
 - severity levels
 - remediation actions
@@ -397,6 +479,7 @@ The screenshot below demonstrates how identified weaknesses and remediation acti
 ### So What
 
 POA&M management helps organizations:
+
 - prioritize remediation
 - reduce risk exposure
 - track corrective actions
@@ -407,6 +490,7 @@ POA&M management helps organizations:
 # Gap Assessment Summary
 
 A formal gap assessment summary was developed to document:
+
 - compliance deficiencies
 - operational risks
 - remediation recommendations
@@ -419,6 +503,7 @@ A formal gap assessment summary was developed to document:
 ### So What
 
 Gap assessments help organizations understand:
+
 - current security posture
 - areas requiring improvement
 - operational risk exposure
@@ -443,11 +528,17 @@ This assessment supports several RMF lifecycle activities.
 
 # How To Explain This Project
 
-This project demonstrates a simulated RMF continuous monitoring and control mapping workflow. I assessed a Windows 11 VM using SCC, STIG Viewer, and Event Viewer. I validated audit logs, reviewed authentication events, ran a Windows 11 STIG compliance scan, identified CAT I and CAT II findings, mapped those findings to NIST SP 800-53 controls, and documented remediation actions in a POA&M tracker.
+This project demonstrates a simulated RMF continuous monitoring and control mapping workflow. I assessed a Windows 11 VM using SCC, STIG Viewer, and Event Viewer. I validated audit logs, reviewed authentication events, ran a Windows 11 STIG compliance scan, identified CAT I, CAT II, and CAT III findings, mapped those findings to NIST SP 800-53 controls, and documented remediation activities in a POA&M tracker.
 
 ## Why This Matters
 
-The purpose of this lab was to show how technical security findings become governance artifacts. In a real organization, these findings would support audit readiness, risk management, remediation tracking, and continuous monitoring activities.
+The purpose of this lab was to demonstrate how technical security findings become governance artifacts. In a real organization, these findings would support:
+
+- audit readiness
+- risk management
+- remediation tracking
+- continuous monitoring
+- compliance validation
 
 ---
 
