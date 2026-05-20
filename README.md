@@ -312,7 +312,7 @@ The assessment identified findings across:
 
 The screenshot below demonstrates detailed CAT I and CAT II findings identified during the SCC assessment review.
 
-![Detailed STIG Findings](screenshots/14-detailed-findings-review.png)
+![Detailed STIG Findings](screenshots/14a-detailed-cat-findings.png)
 
 ### Examples of Findings Identified
 
